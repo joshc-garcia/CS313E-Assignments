@@ -8,24 +8,21 @@ python3 change_values.py < input.txt
 
 import math
 import sys
-
 def change_values(my_a: int, my_b: int, my_c: int, my_d: int):
     """Changes the values depending on ... """
     # Add Your CODE Here ... 
-    if (my_a % 2 != 0):
+    if my_b % 2 != 0:
         my_a, my_b = my_b, my_a
-    
-    if my_c == 1:
-        my_c, my_d = my_d, my_c
-    elif (2 * math.log(my_c, 2) == my_c):
-        my_c, my_d = my_d, my_c
-
-    if (my_a + my_b + my_c == my_d):
+    if my_c != 0:
+        if my_c == 1:
+            my_c, my_d = my_d, my_c
+        elif (2 * math.log(my_c, 2) % 1) == 0:
+            my_c, my_d = my_d, my_c
+    if (my_a + my_b + my_c) == my_d:
         my_d = my_a
-
     return [my_a, my_b, my_c, my_d]
 
-# You can add any helper function if needed. 
+#You can add any helper function if needed. 
 
 def main():
     """A main function to read input data.
