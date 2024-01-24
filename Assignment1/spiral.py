@@ -63,6 +63,8 @@ def create_spiral(dim):
     
     return spiral
 
+spiral = create_spiral(3)
+
 def sum_sub_grid(grid, val):
     """
     Input: grid = a 2-D list containing a spiral of numbers
@@ -73,12 +75,19 @@ def sum_sub_grid(grid, val):
     surrounding the parameter val in the grid
     if val is out of bounds, returns 0
     """
-    # ADD YOUR CODE HERE  
+    # Returns tuple of index of val in 2D array
+    for i in range(len(grid)):
+        if val in grid[i]:
+            row, column = i, grid[i].index(val)
 
 
-    return # ADD YOUR CODE HERE  
 
 
+
+
+    # return # ADD YOUR CODE HERE  
+
+sum_sub_grid(spiral, 1)
 
 
 
