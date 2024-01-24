@@ -32,9 +32,6 @@ import math
 
 def create_spiral(dim):
     """Creates a Spiral given a dimension for the spiral diameter"""
-    if dim % 2 == 0:
-        dim += 1
-
     # Initializes spiral that will be appended with values from grid.
     spiral = [[0 for x in range(dim)] for y in range(dim)]
     grid = [num for num in range(1, dim ** 2 + 1)]
