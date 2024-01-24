@@ -5,8 +5,8 @@
   Student Name: Joshua Garcia
   Student UT EID: jcg4725
 
-  Partner Name:   
-  Partner UT EID:
+  Partner Name: Odette Saenz  
+  Partner UT EID: oss286
 
   Course Name: CS 313E
   Unique Number: 50775
