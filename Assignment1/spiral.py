@@ -3,7 +3,7 @@
   Description:
   Student Name: Joshua Garcia
   Student UT EID: jcg4725
-  Partner Name: Odette Saenz 
+  Partner Name: Odette Saenz
   Partner UT EID: oss286
   Course Name: CS 313E
   Unique Number: 50775
@@ -13,7 +13,7 @@
  Output: returns a 2-D list representing a spiral
          if n is even add one to n
 def create_spiral(n):
-    print("REMOVE THIS PRINT AND ADD YOUR CODE") 
+  print("REMOVE THIS PRINT AND ADD YOUR CODE")
  Input: spiral is a 2-D list and n is an integer
  Output: returns an integer that is the sum of the
          numbers adjacent to n in the spiral
