@@ -129,7 +129,10 @@ def main():
     #     """
 
      # read the dimension of the grid and value from input file
-    dim = int(input())
+    # dim = int(input())
+    #TESTING
+    with open('spiral.in', 'r') as file:
+    dim = int(file.readline().strip())  # Read the dimension from the first line
 
      # test that dimension is odd
     if dim % 2 == 0:
@@ -140,7 +143,11 @@ def main():
 
     while True:
         try:
-            sum_val = int(input())
+            #sum_val = int(input())
+            #TESTING
+            sum_val = int(file.readline().strip())
+            if not sum_val:
+              break
 
              # find sum of adjacent terms
             adj_sum = sum_sub_grid(mat, sum_val)
