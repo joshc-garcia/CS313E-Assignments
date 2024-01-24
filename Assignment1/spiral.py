@@ -1,25 +1,19 @@
 """
   File: spiral.py
   Description:
-
   Student Name: Joshua Garcia
   Student UT EID: jcg4725
-
   Partner Name: Odette Saenz  
   Partner UT EID: oss286
-
   Course Name: CS 313E
   Unique Number: 50775
   Date Created: 1/22/2024
   Date Last Modified:
-
  Input: n is an odd integer between 1 and 100
  Output: returns a 2-D list representing a spiral
          if n is even add one to n
-
 def create_spiral(n):
-    print("REMOVE THIS PRINT AND ADD YOUR CODE")
-    
+    print("REMOVE THIS PRINT AND ADD YOUR CODE")   
  Input: spiral is a 2-D list and n is an integer
  Output: returns an integer that is the sum of the
          numbers adjacent to n in the spiral
@@ -90,21 +84,21 @@ def sum_sub_grid(grid, val):
         # If the value exists, find the value of all adjacent numbers
         # add them to the running total if they are within bounds
     #Finds position of starting, given value 
-    start_Position = None
+    start_position = None
     for i in range(row):
         for j in range(col):
             if grid[i][j] == val:
-                start_Position = (i,j)
+                start_position = (i,j)
                 break #exit loop when index starting position (index of col) is found
-        if start_Position:
+        if start_position:
             break #exit loop when index starting position (index of row) is found
     #If value is not found, retun 0 (out of bounds)
-    if not start_Position:
+    if not start_position:
         return 0
     #Calculates the total sum of adjacent numbers to starting value     
     total = 0
     for slope_x, slope_y in directions.values():
-        x_coordinate, y_coordinate = start_Position[0]+ slope_x, start_Position[1] + slope_y
+        x_coordinate, y_coordinate = start_position[0]+ slope_x, start_position[1] + slope_y
         if 0 <= x_coordinate < row and 0 <= y_coordinate < col:
             total += grid[x_coordinate][y_coordinate]
     #add starting value to total
