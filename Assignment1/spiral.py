@@ -32,13 +32,11 @@ def create_spiral(dim):
     # Initializes spiral that will be appended with values from grid.
     spiral = [[0 for x in range(dim)] for y in range(dim)]
     grid = [num for num in range(1, dim ** 2 + 1)]
-
     #Boundary conditions for the spiral
     top = 0
     left = 0
     bottom = len(spiral) - 1
     right = len(spiral) - 1
-    
     # Loop that prints out spiral from outside to in, going in a 
     # counterclockwise direction.
     while top <= bottom and left <= right:
@@ -46,7 +44,6 @@ def create_spiral(dim):
         for i in range(right, left - 1, -1):
             spiral[top][i] = grid.pop()
         top += 1
-        
         # Prints left column from top to bottom.
         for i in range(top, bottom + 1):
             spiral[i][left] = grid.pop()
@@ -57,12 +54,10 @@ def create_spiral(dim):
             for i in range(left, right + 1):
                 spiral[bottom][i] = grid.pop()
             bottom -= 1
-
             # Prints right column from bottom to top.
             for i in range(bottom, top - 1, -1):
                 spiral[i][right] = grid.pop()
             right -= 1
-    
     return spiral
 
 def sum_sub_grid(grid, val):
@@ -82,7 +77,6 @@ def sum_sub_grid(grid, val):
     col = len(grid[0]) 
     if col == 0:
         return 0
-    
     # Dictionary with directions adjacent to the number
     directions = {
         "up": (-1, 0),
@@ -97,7 +91,6 @@ def sum_sub_grid(grid, val):
         # Iterate through each row and column of the grid to find the value.
         # If the value exists, find the value of all adjacent numbers
         # add them to the running total if they are within bounds
-    
     #Finds position of starting, given value 
     startPosition = None
     for i in range(row):
@@ -118,30 +111,24 @@ def sum_sub_grid(grid, val):
             total += grid[x][y]
     #add starting value to total
     return total
-
+  
 def main():
     """
     #     A Main Function to read the data from input,
     #     run the program and print to the standard output.
     #     """
-
     # read the dimension of the grid and value from input file
     dim = int(input())
-
     # test that dimension is odd
     if dim % 2 == 0:
         dim += 1
-
     # create a 2-D list representing the spiral
     mat = create_spiral(dim)
-
     while True:
         try:
             sum_val = int(input())
-
             # find sum of adjacent terms
             adj_sum = sum_sub_grid(mat, sum_val)
-
              # print the sum
             print(adj_sum)
         except EOFError:
@@ -149,4 +136,4 @@ def main():
           
 if __name__ == "__main__":
     main()
-
+  
