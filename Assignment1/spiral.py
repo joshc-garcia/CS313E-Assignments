@@ -40,15 +40,14 @@ def create_spiral(dim):
 
     top = 0
     left = 0
-    bottom = len(spiral) - 1 # 2
-    right = len(spiral) - 1 # 2
+    bottom = len(spiral) - 1
+    right = len(spiral) - 1
     
     while top <= bottom and left <= right:
-        # for i in range(left, right + 1):
         for i in range(right, left - 1, -1):
             spiral[top][i] = grid.pop()
         top += 1
-        # for i in range(top, bottom + 1):
+        
         for i in range(top, bottom + 1):
             spiral[i][left] = grid.pop()
         left += 1
@@ -57,32 +56,12 @@ def create_spiral(dim):
             for i in range(left, right + 1):
                 spiral[bottom][i] = grid.pop()
             bottom -= 1
-            for i in range(top, bottom + 1):
+            
+            for i in range(bottom, top - 1, -1):
                 spiral[i][right] = grid.pop()
             right -= 1
     
     return spiral
- 
-array = (create_spiral(5))
-
-for i in array:
-    print(i)
-
-"""Ignore this for now"""
-    # max_value = max(grid)
-
-    # current_row = math.ceil(dim / 2) - 1
-    # current_column = math.ceil(dim / 2) - 1
-
-    # count = 1
-    # jump_index = 1
-    # while count <= max_value:
-    #     if (current_column > len(spiral)) or (current_row > len(spiral)):
-    #         break
-
-    #     spiral[current_row][current_column] = count
-
-    # return spiral
 
 def sum_sub_grid(grid, val):
     """
