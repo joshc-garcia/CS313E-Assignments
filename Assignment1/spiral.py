@@ -27,9 +27,6 @@ def create_spiral(n):
 def sum_adjacent_numbers(spiral, n):
     print("REMOVE THIS PRINT AND ADD YOUR CODE")
 """
-
-import math
-
 def create_spiral(dim):
     """Creates a Spiral given a dimension for the spiral diameter"""
     # Initializes spiral that will be appended with values from grid.
@@ -128,28 +125,28 @@ def main():
     #     run the program and print to the standard output.
     #     """
 
-     # read the dimension of the grid and value from input file
-    # dim = int(input())
+    # read the dimension of the grid and value from input file
+    dim = int(input())
 
-     # test that dimension is odd
+    # test that dimension is odd
     if dim % 2 == 0:
         dim += 1
 
-     # create a 2-D list representing the spiral
+    # create a 2-D list representing the spiral
     mat = create_spiral(dim)
 
     while True:
         try:
             sum_val = int(input())
 
-             # find sum of adjacent terms
+            # find sum of adjacent terms
             adj_sum = sum_sub_grid(mat, sum_val)
 
              # print the sum
             print(adj_sum)
         except EOFError:
             break
-
-  if __name__ == "__main__":
-      main()
+          
+if __name__ == "__main__":
+    main()
 
