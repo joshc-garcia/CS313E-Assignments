@@ -92,21 +92,21 @@ def sum_sub_grid(grid, val):
         # If the value exists, find the value of all adjacent numbers
         # add them to the running total if they are within bounds
     #Finds position of starting, given value 
-    startPosition = None
+    start_Position = None
     for i in range(row):
         for j in range(col):
             if grid[i][j] == val:
-                startPosition = (i,j)
+                start_Position = (i,j)
                 break #exit loop when index starting position (index of col) is found
-        if startPosition:
+        if start_Position:
             break #exit loop when index starting position (index of row) is found
     #If value is not found, retun 0 (out of bounds)
-    if not startPosition:
+    if not start_Position:
         return 0
     #Calculates the total sum of adjacent numbers to starting value     
     total = 0
     for dx, dy in directions.values():
-        x, y = startPosition[0]+ dx, startPosition[1] + dy
+        x, y = start_Position[0]+ dx, start_Position[1] + dy
         if 0 <= x < row and 0 <= y < col:
             total += grid[x][y]
     #add starting value to total
