@@ -25,13 +25,14 @@ def create_spiral(dim):
     """Creates a Spiral given a dimension for the spiral diameter"""
     # Initializes spiral that will be appended with values from grid.
     spiral = [[0 for x in range(dim)] for y in range(dim)]
-    grid = [num for num in range(1, dim ** 2 + 1)]
+
+    grid = list(range(1, dim ** 2 + 1))
     #Boundary conditions for the spiral
     top = 0
     left = 0
     bottom = len(spiral) - 1
     right = len(spiral) - 1
-    # Loop that prints out spiral from outside to in, going in a 
+    # Loop that prints out spiral from outside to in, going in a
     # counterclockwise direction.
     while top <= bottom and left <= right:
         # Prints the top row from right to left
@@ -62,11 +63,11 @@ def sum_sub_grid(grid, val):
     surrounding the parameter val in the grid
     if val is out of bounds, returns 0
     """
-    #calculates rows and columns for grid 
+    #calculates rows and columns for grid
     row = len(grid)
     if row == 0:
         return 0
-    col = len(grid[0]) 
+    col = len(grid[0])
     if col == 0:
         return 0
     # Dictionary with directions adjacent to the number
@@ -83,7 +84,7 @@ def sum_sub_grid(grid, val):
         # Iterate through each row and column of the grid to find the value.
         # If the value exists, find the value of all adjacent numbers
         # add them to the running total if they are within bounds
-    #Finds position of starting, given value 
+    #Finds position of starting, given value
     start_position = None
     for i in range(row):
         for j in range(col):
@@ -95,7 +96,7 @@ def sum_sub_grid(grid, val):
     #If value is not found, retun 0 (out of bounds)
     if not start_position:
         return 0
-    #Calculates the total sum of adjacent numbers to starting value     
+    #Calculates the total sum of adjacent numbers to starting value
     total = 0
     for slope_x, slope_y in directions.values():
         x_coordinate, y_coordinate = start_position[0]+ slope_x, start_position[1] + slope_y
@@ -123,7 +124,6 @@ def main():
              # print the sum
             print(adj_sum)
         except EOFError:
-            break  
+            break
 if __name__ == "__main__":
     main()
-  
