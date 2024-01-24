@@ -29,7 +29,6 @@ def sum_adjacent_numbers(spiral, n):
 
 import math
 
-
 def create_spiral(dim):
     """Creates a Spiral given a dimension for the spiral diameter"""
     if dim % 2 == 0:
