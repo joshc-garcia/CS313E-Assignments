@@ -48,7 +48,6 @@ def create_spiral(dim):
         for i in range(top, bottom + 1):
             spiral[i][left] = grid.pop()
         left += 1
-
         if top <= bottom and left <= right:
             # Prints bottom column from left to right
             for i in range(left, right + 1):
@@ -59,7 +58,6 @@ def create_spiral(dim):
                 spiral[i][right] = grid.pop()
             right -= 1
     return spiral
-
 def sum_sub_grid(grid, val):
     """
     Input: grid = a 2-D list containing a spiral of numbers
@@ -105,13 +103,12 @@ def sum_sub_grid(grid, val):
         return 0
     #Calculates the total sum of adjacent numbers to starting value     
     total = 0
-    for dx, dy in directions.values():
-        x, y = start_Position[0]+ dx, start_Position[1] + dy
-        if 0 <= x < row and 0 <= y < col:
-            total += grid[x][y]
+    for slope_x, slope_y in directions.values():
+        x_coordinate, y_coordinate = start_Position[0]+ slope_x, start_Position[1] + slope_y
+        if 0 <= x_coordinate < row and 0 <= y_coordinate < col:
+            total += grid[x_coordinate][y_coordinate]
     #add starting value to total
     return total
-  
 def main():
     """
     #     A Main Function to read the data from input,
@@ -132,8 +129,7 @@ def main():
              # print the sum
             print(adj_sum)
         except EOFError:
-            break
-          
+            break  
 if __name__ == "__main__":
     main()
   
