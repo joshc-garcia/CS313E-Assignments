@@ -18,7 +18,6 @@ def create_spiral(dim):
     Creates a Spiral given a dimension for the spiral diameter"""
     # Initializes spiral that will be appended with values from grid.
     spiral = [[0 for x in range(dim)] for y in range(dim)]
-
     grid = list(range(1, dim ** 2 + 1))
     #Boundary conditions for the spiral
     top = 0
