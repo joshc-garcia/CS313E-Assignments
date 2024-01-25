@@ -1,25 +1,19 @@
 """
   File: spiral.py
   Description:
-
   Student Name: Joshua Garcia
   Student UT EID: jcg4725
-
-  Partner Name:   
-  Partner UT EID:
-
+  Partner Name: Odette Saenz 
+  Partner UT EID: oss286
   Course Name: CS 313E
   Unique Number: 50775
   Date Created: 1/22/2024
   Date Last Modified:
-
  Input: n is an odd integer between 1 and 100
  Output: returns a 2-D list representing a spiral
          if n is even add one to n
-
 def create_spiral(n):
     print("REMOVE THIS PRINT AND ADD YOUR CODE")
-    
  Input: spiral is a 2-D list and n is an integer
  Output: returns an integer that is the sum of the
          numbers adjacent to n in the spiral
@@ -27,9 +21,6 @@ def create_spiral(n):
 def sum_adjacent_numbers(spiral, n):
     print("REMOVE THIS PRINT AND ADD YOUR CODE")
 """
-
-import math
-
 def create_spiral(dim):
     """ Input: n is an odd integer between 1 and 100
     Output: returns a 2-D list representing a spiral
@@ -43,7 +34,6 @@ def create_spiral(dim):
     left = 0
     bottom = len(spiral) - 1
     right = len(spiral) - 1
-    
     # Loop that prints out spiral from outside to in, going in a 
     # counterclockwise direction.
     # len(spiral + 1) // 2 calculates the "rings" of the spiral
@@ -65,7 +55,6 @@ def create_spiral(dim):
             for i in range(bottom, top - 1, -1):
                 spiral[i][right] = grid.pop()
             right -= 1
-    
     return spiral
 def sum_sub_grid(grid, val):
     """
@@ -98,7 +87,6 @@ def sum_sub_grid(grid, val):
         # Iterate through each row and column of the grid to find the value.
         # If the value exists, find the value of all adjacent numbers
         # add them to the running total if they are within bounds
-    
     #Finds position of starting, given value 
     startPosition = None
     for i in range(row):
@@ -124,14 +112,11 @@ def main():
     #     A Main Function to read the data from input,
     #     run the program and print to the standard output.
     #     """
-
      # read the dimension of the grid and value from input file
     dim = int(input())
-
      # test that dimension is odd
     if dim % 2 == 0:
         dim += 1
-
      # create a 2-D list representing the spiral
     mat = create_spiral(dim)
     while True:
@@ -144,7 +129,5 @@ def main():
             print(adj_sum)
         except EOFError:
             break
-
     if __name__ == "__main__":
         main()
-
