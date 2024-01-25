@@ -4,7 +4,7 @@
   multiple dimesnions based on input read from a file
   Student Name: Joshua Garcia
   Student UT EID: jcg4725
-  Partner Name: Odette Saenz  
+  Partner Name: Odette Saenz
   Partner UT EID: oss286
   Course Name: CS 313E
   Unique Number: 50775
