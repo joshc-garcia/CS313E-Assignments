@@ -1,19 +1,20 @@
 """
   File: spiral.py
-  Description:
+  Description: Program that creates a spiral in a 2D array. Calculates
+  the sum of the values that surround a specified number.
   Student Name: Joshua Garcia
   Student UT EID: jcg4725
-  Partner Name: Odette Saenz 
+  Partner Name: Odette Saenz
   Partner UT EID: oss286
   Course Name: CS 313E
   Unique Number: 50775
   Date Created: 1/22/2024
-  Date Last Modified:
+  Date Last Modified: 1/23/2024
  Input: n is an odd integer between 1 and 100
  Output: returns a 2-D list representing a spiral
          if n is even add one to n
 def create_spiral(n):
-    print("REMOVE THIS PRINT AND ADD YOUR CODE")
+  print("REMOVE THIS PRINT AND ADD YOUR CODE")
  Input: spiral is a 2-D list and n is an integer
  Output: returns an integer that is the sum of the
          numbers adjacent to n in the spiral
@@ -22,22 +23,21 @@ def sum_adjacent_numbers(spiral, n):
     print("REMOVE THIS PRINT AND ADD YOUR CODE")
 """
 def create_spiral(dim):
-    """ Input: n is an odd integer between 1 and 100
-    Output: returns a 2-D list representing a spiral
-    if n is even add one to n
-    Creates a Spiral given a dimension for the spiral diameter"""
+    """Creates a Spiral given a dimension for the spiral diameter"""
     # Initializes spiral that will be appended with values from grid.
     spiral = [[0 for x in range(dim)] for y in range(dim)]
     grid = list(range(1, dim ** 2 + 1))
     #Boundary conditions for the spiral
     top = 0
     left = 0
-    bottom = len(spiral) - 1
-    right = len(spiral) - 1
-    # Loop that prints out spiral from outside to in, going in a 
-    # counterclockwise direction.
+    bottom = dim - 1
+    right = dim - 1
+    # Loop that prints out spiral from outside to in, going in a
+    # counterclockwise direction. Inspiration was retrieved from URL:
+    # https://www.prepbytes.com/blog/python/spiral-traversal-of-a-matrix-in-
+    # python/
     # len(spiral + 1) // 2 calculates the "rings" of the spiral
-    for x in range((len(spiral) + 1) // 2):
+    for _ in range((len(spiral) + 1) // 2):
         # Prints the top row from right to left
         for i in range(right, left - 1, -1):
             spiral[top][i] = grid.pop()
@@ -87,8 +87,8 @@ def sum_sub_grid(grid, val):
         # Iterate through each row and column of the grid to find the value.
         # If the value exists, find the value of all adjacent numbers
         # add them to the running total if they are within bounds
-    #Finds position of starting, given value 
-    startPosition = None
+    #Finds position of starting, given value
+    start_position = None
     for i in range(row):
         for j in range(col):
             if grid[i][j] == val:
@@ -112,22 +112,21 @@ def main():
     #     A Main Function to read the data from input,
     #     run the program and print to the standard output.
     #     """
-     # read the dimension of the grid and value from input file
+    # read the dimension of the grid and value from input file
     dim = int(input())
-     # test that dimension is odd
+    # test that dimension is odd
     if dim % 2 == 0:
         dim += 1
-     # create a 2-D list representing the spiral
+    # create a 2-D list representing the spiral
     mat = create_spiral(dim)
     while True:
         try:
             sum_val = int(input())
-
-             # find sum of adjacent terms
+            # find sum of adjacent terms
             adj_sum = sum_sub_grid(mat, sum_val)
              # print the sum
             print(adj_sum)
         except EOFError:
             break
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
