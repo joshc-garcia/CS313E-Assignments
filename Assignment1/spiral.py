@@ -1,28 +1,21 @@
 """
   File: spiral.py
-  Description:
+  Description: This project generated a spiral grid it
+  multiple dimesnions based on input read from a file
   Student Name: Joshua Garcia
   Student UT EID: jcg4725
-  Partner Name: Odette Saenz
+  Partner Name: Odette Saenz  
   Partner UT EID: oss286
   Course Name: CS 313E
   Unique Number: 50775
   Date Created: 1/22/2024
-  Date Last Modified:
- Input: n is an odd integer between 1 and 100
- Output: returns a 2-D list representing a spiral
-         if n is even add one to n
-def create_spiral(n):
-  print("REMOVE THIS PRINT AND ADD YOUR CODE")
- Input: spiral is a 2-D list and n is an integer
- Output: returns an integer that is the sum of the
-         numbers adjacent to n in the spiral
-         if n is outside the range return 0
-def sum_adjacent_numbers(spiral, n):
-    print("REMOVE THIS PRINT AND ADD YOUR CODE")
+  Date Last Modified: 1/24/2024
 """
 def create_spiral(dim):
-    """Creates a Spiral given a dimension for the spiral diameter"""
+    """ Input: n is an odd integer between 1 and 100
+    Output: returns a 2-D list representing a spiral
+    if n is even add one to n
+    Creates a Spiral given a dimension for the spiral diameter"""
     # Initializes spiral that will be appended with values from grid.
     spiral = [[0 for x in range(dim)] for y in range(dim)]
 
