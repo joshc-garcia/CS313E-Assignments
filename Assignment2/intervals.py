@@ -18,10 +18,9 @@ def merge_tuples (tuples_list):
     """Merge the tuples"""        
     sort_list = [list(i) for i in sorted(tuples_list)]
     result = [sort_list.pop(0)]
-    
+
     sort_iterator = 0
     result_iterator = 0
-
     while len(sort_list) >= 1:
         # Overlap, where second element ends after the first
         if (result[result_iterator][1] >= sort_list[sort_iterator][0] and
@@ -42,11 +41,6 @@ def merge_tuples (tuples_list):
               result[result_iterator][0] >= sort_list[sort_iterator][0]):
             result[result_iterator] = sort_list[sort_iterator]
             del sort_list[sort_iterator]
-        # No overlap, but second point of first element and first point of second 
-        # element touch
-        # elif (result[result_iterator][1]) == (sort_list[sort_iterator][0] - 1):
-        #     result[result_iterator][1] = sort_list[sort_iterator][1]
-        #     del sort_list[sort_iterator]
         # No overlap at all
         else:
             result.append(sort_list[sort_iterator])
