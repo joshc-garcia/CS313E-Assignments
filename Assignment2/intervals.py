@@ -5,15 +5,6 @@
 """
 import sys
 
-tup_list = ["14 17", "-8 -5", "26 29", "-20 -15", "12 15", "2 3",
-            "-10 -7", "25 30", "2 4", "-21 -16", "13 18", "22 27",
-            "-6 -3", "3 6", "-25 -14"]
-
-tuples_list = []
-for m_tuple in tup_list:
-    tup = m_tuple.split()
-    tuples_list.append(tuple((int(tup[0]), int(tup[1]))))
-
 def merge_tuples (tuples_list):
     """Merge the tuples"""        
     sort_list = [list(i) for i in sorted(tuples_list)]
@@ -49,7 +40,7 @@ def merge_tuples (tuples_list):
 
     result = [tuple(i) for i in result]
 
-    return result                                 
+    return result
 
 def sort_by_interval_size (tuples_list):
     """
@@ -64,7 +55,7 @@ def sort_by_interval_size (tuples_list):
     for i in range(len(sort) - 1):
         min_int = i
         for j in range(i + 1, len(sort)):
-            if (max(sort[j]) - min(sort[j]) 
+            if (max(sort[j]) - min(sort[j])
                 < max(sort[min_int]) - min(sort[min_int])):
                 min_int = j
 
@@ -90,7 +81,6 @@ def main():
         tup = m_tuple.split()
         tuples_list.append(tuple((int(tup[0]), int(tup[1]))))
 
-    print(tuples_list)
     # merge the list of tuples
     merged = merge_tuples(tuples_list)
 
