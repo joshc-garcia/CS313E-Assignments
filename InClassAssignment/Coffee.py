@@ -1,3 +1,11 @@
+# Student: Joshua Garcia
+# Class: CS313E
+# UT EID: jcg4725
+# Unique Class ID: 50775
+# Description: Program that simulates a coffee vending machine that allows
+# for the user to choose several different types of coffee.
+
+
 class RegularCoffee:
     def __init__(self, price = 1.10, sugar = 0, milk = 0):
         self.price = price
