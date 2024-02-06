@@ -1,6 +1,6 @@
 """
 File: employee.py
-Description:
+Description: Program that represents various employees that a company may have. 
 Student Name: Joshua Garcia
 Student UT EID: jcg4725
 Partner Name:
@@ -8,11 +8,12 @@ Partner UT EID:
 Course Name: CS 313E
 Unique Number: 50775
 Date Created: 02/05/2024
-Date Last Modified:
+Date Last Modified: 02/05/2024
 """
-#########################################################################################################
+#################################################################################################
 
 class Employee:
+    """Class that represents an employee."""
     def __init__(self, **kwargs):
         self.name = kwargs.get('name')
         self.identifier = kwargs.get('identifier')
@@ -21,82 +22,88 @@ class Employee:
     def __str__(self):
         return f'{self.__class__.__name__}\n{self.name} {self.identifier} {self.salary}'
 
-#########################################################################################################
+#################################################################################################
 
 class PermanentEmployee(Employee):
-    def __init__(self, **kwargs): 
+    """Class that inherits employee attributes, as well as includes benefits."""
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.benefits = kwargs.get('benefits')
 
     def cal_salary(self):
+        """Calculates salary based on benefit package."""
         if self.benefits == ['health_insurance']:
-            salary = (0.9 * self.salary)
+            salary = 0.9 * self.salary
         elif self.benefits == ['retirement']:
-            salary = (0.8 * self.salary)
+            salary = 0.8 * self.salary
         elif self.benefits == ['retirement', 'health_insurance']:
-            salary = (0.7 * self.salary)
+            salary = 0.7 * self.salary
         return salary
 
     def __str__(self):
-        # return f'{self.__class__.__name__}\n{self.name} {self.identifier} {self.salary} {self.benefits}'
         return f'{Employee.__str__(self)} {self.benefits}'
-    
-#########################################################################################################
+
+#################################################################################################
 
 class TemporaryEmployee(Employee):
+    """Class that inherits employee attributes, but salary is based on worked hours."""
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.hours = kwargs.get('hours')
 
     def cal_salary(self):
-        salary = (self.salary * self.hours)
+        """Calculates salary based on hours worked and hourly pay."""
+        salary = self.salary * self.hours
         return salary
-    
+
     def __str__(self):
         return f'{Employee.__str__(self)} {self.hours}'
 
-#########################################################################################################
-    
+#################################################################################################
+
 class Consultant(TemporaryEmployee):
+    """Class that inherits temp employee attributes. Salary includes travel bonus."""
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.travel = kwargs.get('travel')
 
     def cal_salary(self):
+        """Calculates salary based on Temp salary, as well as travel bonus."""
         salary = TemporaryEmployee.cal_salary(self) + (self.travel * 1000)
         return salary
-    
+
     def __str__(self):
         return f'{Employee.__str__(self)} {self.hours} {self.travel}'
-       
-#########################################################################################################
-    
+
+#################################################################################################
+
 class Manager(Employee):
+    """Class that inherits employee attributes. Salary includes bonus."""
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.bonus = kwargs.get('bonus')
 
     def cal_salary(self):
-        salary = (self.salary + self.bonus)
+        """Calculates salary based on total salary and bonus."""
+        salary = self.salary + self.bonus
         return salary
-    
+
     def __str__(self):
         return f'{Employee.__str__(self)} {self.bonus}'
 
-#########################################################################################################
-    
-class ConsultantManager(Consultant, Manager):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+#################################################################################################
 
+class ConsultantManager(Consultant, Manager):
+    """Class that inherits from the consultant and manager classes. Salary is based on
+    bonus, hours worked, and travel."""
     def cal_salary(self):
         salary = (self.salary * self.hours) + (self.bonus) + (self.travel * 1000)
         return salary
-    
+
     def __str__(self):
         return f'{Employee.__str__(self)} {self.hours} {self.travel}'
 
-#########################################################################################################
+#################################################################################################
 
 def main():
     """
