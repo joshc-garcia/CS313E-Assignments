@@ -149,17 +149,21 @@ class Cube():
   # other is a Cube object
   # returns a Boolean
     def is_inside_cube(self, other):
-         # implement here ...
+        if (abs(other.center.x - self.center.x) + other.side / 2 > self.side / 2 or
+            abs(other.center.y - self.center.y) + other.side / 2 > self.side / 2 or
+            abs(other.center.z - self.center.z) + other.side / 2 > self.side / 2):
+            return False
 
-          return True 
+        return True 
 
 
 # Implement this Method
 # Checks if two shapes, cubes or sphere have the same volume
     def has_same_volume(self, other) -> bool:
-        # implement here ...
+        if type(other) == Cube:
+            return self.volume() == other.volume()
+        elif type(other) == Sphere:
+            return self.volume() == other.volume()
+        else:
+            return False
         
-
-        return True
-
-

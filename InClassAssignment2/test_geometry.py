@@ -30,52 +30,56 @@ class TestGeometry(unittest.TestCase):
 
     #TODO! Implement this 
     def test_002_point_equality(self):
-        self.assertEqual(int(self.origin.__eq__(self.one_above_origin)), False)
-        self.assertEqual(int(self.origin.__eq__(self.out_point)), False)
+        self.assertEqual(Point(0, 0, 0), Point(0, 0, 0))
+        self.assertEqual(Point(0, 2, 4), Point(1, 3, 7))
         
 
-#     #TODO! Implement this 
+    #TODO! Implement this 
     def test_003_sphere_area(self):
-        self.assertAlmostEqual(Sphere.area(self.one_radius_sphere), 12.57, 2)
-        self.assertAlmostEqual(Sphere.area(self.ten_radius_sphere), 1256.6, 1)
+        self.assertAlmostEqual(self.one_radius_sphere.area(), 4 * math.pi * self.one_radius_sphere.radius ** 2, 2)
+        self.assertAlmostEqual(self.ten_radius_sphere.area(), 4 * math.pi * self.ten_radius_sphere.radius ** 2, 2)
 
     
-#     #TODO! Implement this 
+    #TODO! Implement this 
     def test_004_sphere_volume(self):
-        self.assertAlmostEqual(Sphere.volume(self.one_radius_sphere), 4.19, 2)
-        self.assertAlmostEqual(Sphere.volume(self.ten_radius_sphere), 4188.79, 2)
+        self.assertAlmostEqual(self.one_radius_sphere.volume(), (4 / 3) * math.pi * self.one_radius_sphere.radius ** 3, 2)
+        self.assertAlmostEqual(self.ten_radius_sphere.volume(), (4 / 3) * math.pi * self.ten_radius_sphere.radius ** 3, 2, 2)
 
 
 #     #TODO! Implement this 
-#     def test_005_sphere_is_inside_point(self):
-#         pass
+    def test_005_sphere_is_inside_point(self):
+        self.assertTrue(self.one_radius_sphere.is_inside_point(Point(0, 0, 0)))
+        self.assertFalse(self.ten_radius_sphere.is_inside_point(Point(3, 8, 4)))
 
 
-#     #TODO! Implement this 
-#     def test_006_sphere_is_inside_sphere(self):
-#         pass
+    #TODO! Implement this 
+    def test_006_sphere_is_inside_sphere(self):
+        self.assertTrue(self.one_radius_sphere.is_inside_sphere(self.ten_radius_sphere))
+        self.assertFalse(self.ten_radius_sphere.is_inside_sphere(self.one_radius_sphere))
 
 
-#    #TODO! Implement this 
-#     def test_006_cube_is_inside_point(self):
-#         pass
+   #TODO! Implement this 
+    def test_006_cube_is_inside_point(self):
+        self.assertTrue(self.one_cube.is_inside_point(Point(0, 0, 0)))
+        self.assertFalse(self.one_cube.is_inside_point(Point(3, 8, 4)))
 
-#    #TODO! Implement this 
-#     def test_007_is_inside_sphere(self):
-#         pass
+   #TODO! Implement this 
+    def test_007_is_inside_sphere(self):
+        self.assertTrue(self.one_cube.is_inside_sphere(self.one_radius_sphere))
+        self.assertTrue(self.ten_cube.is_inside_sphere(self.one_radius_sphere))
 
 
 
-# # Here we have the test but we do not have the implementation of the method is_inside_cube()
-# # 
-# # No need to change these tests here 
-# # You need to implement the method is_inside_cube()
-#     def test_000_is_inside_cube(self):
-#         self.assertTrue(self.one_cube.is_inside_cube(self.ten_cube))
-#         self.assertFalse(self.one_cube.is_inside_cube(self.one_cube))
+# Here we have the test but we do not have the implementation of the method is_inside_cube()
+# 
+# No need to change these tests here 
+# You need to implement the method is_inside_cube()
+    def test_000_is_inside_cube(self):
+        self.assertTrue(self.one_cube.is_inside_cube(self.ten_cube))
+        self.assertFalse(self.one_cube.is_inside_cube(self.one_cube))
 
-#     def test_000_has_same_volume(self): 
-#         self.assertTrue(self.one_cube.has_same_volume(self.one_cube)) 
+    def test_000_has_same_volume(self): 
+        self.assertTrue(self.one_cube.has_same_volume(self.one_cube)) 
 
 
 
