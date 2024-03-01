@@ -103,10 +103,20 @@ def main():
     bst.insert(15)
     bst.insert(22)
     bst.insert(4)
-    print(bst.sort())
-    print(bst.bst_median())
-    print(bst.height())
-    print(bst.is_balanced())
+    sorted_elements = bst.sort()
+    print(f'Sorted elements of the BST: {sorted_elements}')
+    
+    median = bst.bst_median()
+    print(f'Median of the list of elements is: {median}')
+
+    height = bst.height()
+    print(f'Height of the BST: {height}')
+    
+    is_balanced = bst.is_balanced()
+    if is_balanced:
+        print('The BST is balanced.')
+    else:
+        print('The BST is not balanced.')
 
 
 if __name__ == '__main__':
