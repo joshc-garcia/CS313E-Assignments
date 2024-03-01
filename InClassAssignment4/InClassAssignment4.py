@@ -1,6 +1,7 @@
 # Inclass Assignment
 from example_009_binary_search_tree import Node
 from example_009_binary_search_tree import BST 
+import math
 
 class Node():
     def __init__(self, key):
@@ -29,7 +30,6 @@ class BST():
     def print(self, level):
         self.root.print_node(level)
 
-
     def insert(self, val):
         newNode = Node(val)
 
@@ -54,21 +54,44 @@ class BST():
     # use in order traversal for this
     def sort(self):
         sort_list = []
-
-        if self.root != None:
-            if self.root.rChild != None:
-                self.sort(self.root.lChild)
-                sort_list.append(self.root.lChild)
-            if self.root.lChild != None:
-                self.sort(self.root.rChild)
-                sort_list.append(self.root.rChild)
-
+        self.in_order_traversal(self.root, sort_list)
         return sort_list
-            #     self.root.rChild.sort()
-            #     sort_list.append(self.root.rChild)
-            # if self.root.lChild != None:
-            #     self.root.lChild.sort()
-            #     sort_list.append(self.root.lChild)
+
+    def in_order_traversal(self, node, sort_list):
+        if node:
+            self.in_order_traversal(node.lChild, sort_list)
+            sort_list.append(node.key)
+            self.in_order_traversal(node.rChild, sort_list)
+
+    def bst_median(self):
+        sorted_elements = self.sort()
+
+        if (len(sorted_elements) % 2 != 0):
+            return (sorted_elements[len(sorted_elements) // 2])
+        else:
+            right_element = sorted_elements[(len(sorted_elements) // 2)]
+            left_element = sorted_elements[((len(sorted_elements) // 2) - 1)]
+            return (right_element + left_element) / 2
+        
+    def height(self):
+        return self.calculate_height(self.root)
+            
+    def calculate_height(self, node):
+        if node is None:
+            return 0
+        else:
+            left_height = self.calculate_height(node.lChild)
+            right_height = self.calculate_height(node.rChild)
+            return max(left_height, right_height) + 1
+
+    def is_balanced(self):
+        left_height = self.calculate_height(self.root.lChild)
+        right_height = self.calculate_height(self.root.rChild)
+
+        if (abs(left_height - right_height) <= 1):
+            return True
+        else:
+            return False
 
 def main():
     # node_root = Node(1)
@@ -80,7 +103,11 @@ def main():
     bst.insert(15)
     bst.insert(22)
     bst.insert(4)
-    bst.sort()
+    print(bst.sort())
+    print(bst.bst_median())
+    print(bst.height())
+    print(bst.is_balanced())
+
 
 if __name__ == '__main__':
     main()
